@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-6 offset-3">
+    <form #productForm="ngForm" (ngSubmit)="onUpdate(productForm)">
+      <div class="form-group">
+        <label>id</label>
+        <input [(ngModel)]="event.id" name="id" type="text" class="form-control" required>
+        <div [hidden]="productForm.controls.id?.valid" class="error-message">
+          Az id-nak nem szabad üresnek lennie!
+        </div>
+        <label>name</label>
+        <input [(ngModel)]="event.name" pattern=".{8,}" name="name" type="text" class="form-control" required>
+        <div [hidden]="productForm.controls.name?.valid" class="error-message">
+          A névnek minimum 8 karakter hosszúnak kell lennie!
+        </div>
+        <label>date</label>
+        <input [(ngModel)]="event.date" name="date" type="text" class="form-control" required>
+        <div [hidden]="productForm.controls.date?.valid" class="error-message">
+          A dátumnak nem szabad üresnek lennie!
+        </div>
+        <label>time</label>
+        <input [(ngModel)]="event.time" name="time" type="text" class="form-control" required>
+        <div [hidden]="productForm.controls.time?.valid" class="error-message">
+          Az időpontnak nem szabad üresnek lennie!
+        </div>
+        <label>location</label>
+        <input [(ngModel)]="event.location" name="location" type="text" class="form-control" required>
+        <div [hidden]="productForm.controls.location?.valid" class="error-message">
+          A helyszínnek nem szabad üresnek lennie!
+        </div>
+      </div>
+      <button [disabled]="productForm.invalid" class="btn btn-block btn-primary">
+        <i class="fa fa-save"></i>
+      </button>
+    </form>
+  </div>
+</div>
